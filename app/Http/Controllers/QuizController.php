@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
@@ -49,9 +49,14 @@ class QuizController extends Controller
         ],
     ];
 
+    public function home()
+    {
+        return view('home');
+    }
+
     public function index()
     {
-        return view('home', ['topics' => $this->topics]);
+        return view('quizzes.index', ['topics' => $this->topics]);
     }
 
     public function show($id)
@@ -62,7 +67,7 @@ class QuizController extends Controller
             abort(404);
         }
 
-        return view('quiz', compact('topic'));
+        return view('quizzes.quiz', compact('topic'));
     }
 }
 

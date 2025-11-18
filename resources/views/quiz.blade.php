@@ -13,7 +13,7 @@
         <div class="alert alert-info mt-4">
             Tu będą pytania quizowe z kategorii <strong>{{ $topic['title'] }}</strong>.
         </div>
-        <a href="{{ route('home') }}" class="btn btn-secondary mt-3">Powrót</a>
+        <a href="{{ route('quizzes.index') }}" class="btn btn-secondary mt-3">Powrót do listy</a>
     </div>
 </body>
 </html>

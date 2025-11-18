@@ -8,29 +8,18 @@
 </head>
 <body class="bg-light">
     <div class="container py-5">
-        <div class="text-center mb-4">
-            <h1 class="display-4">Quizomat</h1>
-            <p class="lead">Autor: Dominik Waleryszak</p>
-            <p class="text-muted">Projekt zaliczeniowy z Programowania Zaawansowanego<br>prof. Rainer Bezzina</p>
-        </div>
+        <div class="text-center">
+            <h1 class="display-4 mb-3">Quizomat</h1>
+            <p class="lead">Aplikacja stworzona przez Dominika Waleryszaka</p>
+            <p class="text-muted mb-4">
+                Projekt zaliczeniowy z Programowania Zaawansowanego<br>
+                Prowadzący: prof. Rainer Bezzina <br>
+                Kliknij przycisk poniżej aby ropocząć
+            </p>
 
-        <div class="mb-4">
-            <h2 class="h5">Wybierz temat quizu:</h2>
-        </div>
-
-        <div class="row g-4">
-            @foreach($topics as $topic)
-                <div class="col-md-6 col-lg-3">
-                    <a href="{{ route('quiz.show', $topic['id']) }}" class="text-decoration-none text-dark">
-                        <div class="card h-100 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $topic['title'] }}</h5>
-                                <p class="card-text small">{{ $topic['description'] }}</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            @endforeach
+            <a href="{{ route('quizzes.index') }}" class="btn btn-primary btn-lg px-4">
+                Rozpocznij
+            </a>
         </div>
     </div>
 </body>

@@ -91,8 +91,32 @@ class QuizController extends Controller
             ['question' => 'Jaki język służy do stylowania stron?', 'options' => ['CSS', 'JS', 'Python', 'SQL'], 'correct' => 'CSS'],
 ],
 
-        'edukacja' => [ ... ],
-        'geografia' => [ ... ],
+        'edukacja' => [
+    ['question' => 'Numer alarmowy w Polsce?', 'options' => ['112', '911', '998', '997'], 'correct' => '112'],
+    ['question' => 'Pierwszy krok RKO?', 'options' => ['Sprawdzenie oddechu', 'Wezwanie pomocy', 'Rozpięcie ubrania', 'Zadzwonienie do rodziny'], 'correct' => 'Wezwanie pomocy'],
+    ['question' => 'Co oznacza AED?', 'options' => ['Defibrylator', 'Kamera', 'System GPS', 'Radiotelefon'], 'correct' => 'Defibrylator'],
+    ['question' => 'Kiedy używamy opatrunku uciskowego?', 'options' => ['Krwotok', 'Kaszel', 'Oparzenie', 'Zatrucie'], 'correct' => 'Krwotok'],
+    ['question' => 'Co robimy przy poparzeniu?', 'options' => ['Schładzamy wodą', 'Nakładamy masło', 'Zasypujemy solą', 'Zostawiamy'], 'correct' => 'Schładzamy wodą'],
+    ['question' => 'Co grozi za brak pasów w aucie?', 'options' => ['Mandat', 'Ostrzeżenie', 'Nic', 'Tylko pouczenie'], 'correct' => 'Mandat'],
+    ['question' => 'Kiedy dzwonić po karetkę?', 'options' => ['Zagrażające życiu', 'Brak internetu', 'Złe samopoczucie', 'Ból palca'], 'correct' => 'Zagrażające życiu'],
+    ['question' => 'Pozycja bezpieczna to?', 'options' => ['Boczna', 'Na plecach', 'Na brzuchu', 'Na kolanach'], 'correct' => 'Boczna'],
+    ['question' => 'Co oznacza znak ostrzegawczy?', 'options' => ['Trójkąt', 'Koło', 'Kwadrat', 'Prostokąt'], 'correct' => 'Trójkąt'],
+    ['question' => 'Podstawowy środek gaśniczy?', 'options' => ['Gaśnica', 'Woda', 'Piasek', 'Trawa'], 'correct' => 'Gaśnica'],
+],
+
+        'geografia' => [
+    ['question' => 'Najwyższa góra świata?', 'options' => ['Mount Everest', 'K2', 'Alpy', 'Rysy'], 'correct' => 'Mount Everest'],
+    ['question' => 'Najdłuższa rzeka?', 'options' => ['Nil', 'Amazonka', 'Wisła', 'Jangcy'], 'correct' => 'Nil'],
+    ['question' => 'Stolica Francji?', 'options' => ['Paryż', 'Rzym', 'Madryt', 'Berlin'], 'correct' => 'Paryż'],
+    ['question' => 'Który kontynent jest największy?', 'options' => ['Azja', 'Afryka', 'Europa', 'Australia'], 'correct' => 'Azja'],
+    ['question' => 'Jaki ocean leży przy Polsce?', 'options' => ['Atlantycki', 'Spokojny', 'Arktyczny', 'Żaden'], 'correct' => 'Atlantycki'],
+    ['question' => 'Który kraj graniczy z Polską?', 'options' => ['Niemcy', 'Włochy', 'Hiszpania', 'Norwegia'], 'correct' => 'Niemcy'],
+    ['question' => 'Który kraj jest wyspą?', 'options' => ['Japonia', 'Czechy', 'Austria', 'Polska'], 'correct' => 'Japonia'],
+    ['question' => 'Stolica Niemiec?', 'options' => ['Berlin', 'Hamburg', 'Monachium', 'Kolonia'], 'correct' => 'Berlin'],
+    ['question' => 'Pustynia w Afryce?', 'options' => ['Sahara', 'Gobi', 'Kalahari', 'Atakama'], 'correct' => 'Sahara'],
+    ['question' => 'Morze na północy Polski?', 'options' => ['Bałtyckie', 'Północne', 'Czarne', 'Śródziemne'], 'correct' => 'Bałtyckie'],
+],
+
     ];
 
     public function show($id)

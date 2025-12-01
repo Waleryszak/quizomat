@@ -9,6 +9,9 @@
 
 <body class="bg-light">
 <div class="container py-5 text-center">
+    <div class="text-center mt-3">
+        <a href="{{ route('admin.login') }}" class="btn btn-dark">Panel administratora</a>
+    </div>
 
     <h1 class="display-4 mb-3">Quizomat</h1>
     <p class="lead">Projekt autorstwa Dominika Waleryszaka</p>

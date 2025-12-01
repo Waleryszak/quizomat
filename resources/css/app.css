@@ -10,3 +10,12 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+
+@layer base {
+    .page-link {
+        font-size: 14px !important;
+        font-family: Arial, sans-serif !important;
+        line-height: 1 !important;
+    }
+}

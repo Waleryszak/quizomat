@@ -15,7 +15,7 @@ class AdminQuizController extends Controller
 
         return null;
     }
-
+    //pobiera liczbę pytań/kategorii i zwraca w panelu
     public function dashboard()
     {
         if ($r = $this->requireAdmin()) return $r;
@@ -29,7 +29,7 @@ class AdminQuizController extends Controller
             'categories' => $categories,
         ]);
     }
-
+    //Zbieranie pytań z filtrowaniem po kategorii i zwraca pytania
     public function list(Request $request)
     {
         if ($r = $this->requireAdmin()) return $r;
@@ -45,14 +45,13 @@ class AdminQuizController extends Controller
             'category' => $category,
         ]);
     }
-
     public function form()
     {
         if ($r = $this->requireAdmin()) return $r;
 
         return view('admin.add');
     }
-
+    //Form - zwraca form dodawania pytania, Store waliduje dane forma i zapisuje do bazy
     public function store(Request $request)
     {
         if ($r = $this->requireAdmin()) return $r;
@@ -79,7 +78,7 @@ class AdminQuizController extends Controller
 
         return redirect()->route('admin.questions')->with('success', 'Dodano pytanie');
     }
-
+    //Pobiera  pytanie po ID i zwraca forma edycji
     public function edit($id)
     {
         if ($r = $this->requireAdmin()) return $r;
@@ -95,7 +94,7 @@ class AdminQuizController extends Controller
     public function update($id, Request $request)
     {
         if ($r = $this->requireAdmin()) return $r;
-
+        //walidacja danych po edycji i aktualizacja wybranego pytania
         $request->validate([
             'category' => 'required|in:historia,chemia,biologia,matematyka,przyroda,informatyka,edukacja,geografia',
             'question' => 'required|string',
@@ -120,7 +119,7 @@ class AdminQuizController extends Controller
 
         return redirect()->route('admin.questions')->with('success', 'Zaktualizowano pytanie');
     }
-
+    //Usuwanie pytania i zwraca użyt do listy z komunikatem o sukcesie
     public function delete($id)
     {
         if ($r = $this->requireAdmin()) return $r;

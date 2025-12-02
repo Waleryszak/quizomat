@@ -10,7 +10,7 @@ Route::get('/quizzes', [QuizController::class, 'index'])->name('quizzes.index');
 Route::get('/quiz/{id}', [QuizController::class, 'show'])->name('quiz.show');
 Route::post('/quiz/{id}', [QuizController::class, 'submit'])->name('quiz.submit');
 
-// panel admina bez middleware
+// panel admina 
 Route::get('/admin/login', [AdminAuthController::class, 'loginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.post');
 Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');

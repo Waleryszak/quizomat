@@ -15,6 +15,7 @@
         <label>Kategoria</label>
         <select name="category" class="form-control" required>
             <option value="">Wybierz kategorię</option>
+            {{-- sprawdza kategorię pytania i ustawia atrybut selected w elemencie select. --}}
             <option value="historia" {{ $question->category == 'historia' ? 'selected' : '' }}>Historia</option>
             <option value="chemia" {{ $question->category == 'chemia' ? 'selected' : '' }}>Chemia</option>
             <option value="biologia" {{ $question->category == 'biologia' ? 'selected' : '' }}>Biologia</option>

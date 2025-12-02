@@ -1,3 +1,5 @@
+{{-- Rozszerzenie szablonu panelu admina oraz contentu --}}
+
 @extends('admin.layout')
 
 @section('content')

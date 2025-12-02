@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Quiz;
 
 class QuizController extends Controller
-{
+{   //Definicja identyfikatora i opisów kategorii
     private array $topics = [
         ['id' => 'historia', 'title' => 'Historia', 'description' => 'Wydarzenia historyczne i postacie'],
         ['id' => 'chemia', 'title' => 'Chemia', 'description' => 'Pierwiastki i reakcje chemiczne'],
@@ -27,7 +27,7 @@ class QuizController extends Controller
     {
         return view('quizzes.index', ['topics' => $this->topics]);
     }
-
+    //Sprawdzanie poprawności identyfikatora kategorii, pobranie losowego pytania z bazy i zapis w sesji
     public function show($id)
     {
         $topic = collect($this->topics)->firstWhere('id', $id);
@@ -46,7 +46,7 @@ class QuizController extends Controller
             'score' => null
         ]);
     }
-
+    //Pobiera odpowiedzi i porównuje je z poprawnymi i oblicza wynik
     public function submit($id, Request $request)
     {
         $topic = collect($this->topics)->firstWhere('id', $id);
@@ -63,7 +63,7 @@ class QuizController extends Controller
         }
 
         session()->forget("quiz_{$id}_questions");
-
+        //Zwraca wynik do do widoku quizu i sesja zostaje wyczyszczona
         return view('quiz', [
             'topic' => $topic,
             'questions' => $questions,

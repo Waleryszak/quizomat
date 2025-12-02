@@ -15,6 +15,7 @@
 <form method="GET" class="mb-3">
     <select name="category" class="form-select" onchange="this.form.submit()">
         <option value="">Wszystkie kategorie</option>
+        {{-- pętla pobiera kat z tabeli, Select i dist wybierają kolumne cat, Pluck zwraca wartości kat w liście --}}
         @foreach(\App\Models\Quiz::select('category')->distinct()->pluck('category') as $cat)
             <option value="{{ $cat }}" @if($category == $cat) selected @endif>{{ $cat }}</option>
         @endforeach

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminAuthController extends Controller
 {
+    //sprawdzanie sesji  i przekierowanie do panelu
     public function loginForm()
     {
        
@@ -19,11 +20,11 @@ class AdminAuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'login' => 'required',
+            'login' => 'required', 
             'password' => 'required',
         ]);
 
-        // proste dane logowania
+        //Proste sprawdzenie inputów jeśli true nadaje token/flage zalog a jak nie to błąd
         if ($request->login === 'admin' && $request->password === '1234') {
             session(['admin_logged' => true]);
             return redirect()->route('admin.dashboard');
@@ -38,3 +39,4 @@ class AdminAuthController extends Controller
         return redirect()->route('admin.login');
     }
 }
+// usuwa token zalogowania i odsyła do ekranu logowania

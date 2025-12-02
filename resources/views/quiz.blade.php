@@ -29,7 +29,7 @@
 
         <form method="POST" action="{{ route('quiz.submit', $topic['id']) }}">
             @csrf
-
+            {{-- budowanie nagłówka z treścią --}}
             @foreach($questions as $index => $q)
                 <div class="mb-4">
                     <h5>{{ $index + 1 }}. {{ $q->question }}</h5>

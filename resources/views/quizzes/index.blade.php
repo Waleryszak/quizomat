@@ -13,6 +13,7 @@
     <h1 class="text-center mb-4">Wybierz kategorię quizu</h1>
 
     <div class="row g-4">
+        {{-- pobranie z controllera z tablicy topics  --}}
         @foreach($topics as $topic)
             <div class="col-md-6 col-lg-3">
                 <a href="{{ route('quiz.show', $topic['id']) }}" class="text-decoration-none text-dark">

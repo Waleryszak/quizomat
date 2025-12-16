@@ -10,7 +10,7 @@ return new class extends Migration
 {
     Schema::create('quizzes', function (Blueprint $table) {
         $table->id();
-        $table->string('category');
+        $table->unsignedBigInteger('category_id');
         $table->string('question');
         $table->string('option_a');
         $table->string('option_b');

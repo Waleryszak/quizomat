@@ -13,18 +13,15 @@
 
     <div class="mb-3">
         <label>Kategoria</label>
-        <select name="category" class="form-control" required>
+        <select name="category_id" class="form-control" required>
             <option value="">Wybierz kategorię</option>
-            {{-- sprawdza kategorię pytania i ustawia atrybut selected w elemencie select. --}}
-            <option value="historia" {{ $question->category == 'historia' ? 'selected' : '' }}>Historia</option>
-            <option value="chemia" {{ $question->category == 'chemia' ? 'selected' : '' }}>Chemia</option>
-            <option value="biologia" {{ $question->category == 'biologia' ? 'selected' : '' }}>Biologia</option>
-            <option value="matematyka" {{ $question->category == 'matematyka' ? 'selected' : '' }}>Matematyka</option>
-            <option value="przyroda" {{ $question->category == 'przyroda' ? 'selected' : '' }}>Przyroda</option>
-            <option value="informatyka" {{ $question->category == 'informatyka' ? 'selected' : '' }}>Informatyka</option>
-            <option value="edukacja" {{ $question->category == 'edukacja' ? 'selected' : '' }}>Edukacja dla bezpieczeństwa</option>
-            <option value="geografia" {{ $question->category == 'geografia' ? 'selected' : '' }}>Geografia</option>
+            @foreach($categories as $cat)
+                <option value="{{ $cat->id }}" {{ old('category_id', $question->category_id) == $cat->id ? 'selected' : '' }}>
+                    {{ $cat->title }}
+                </option>
+            @endforeach
         </select>
+
 
     </div>
 

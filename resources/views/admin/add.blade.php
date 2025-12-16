@@ -1,5 +1,3 @@
-{{-- Rozszerzenie szablonu panelu admina oraz contentu --}}
-
 @extends('admin.layout')
 
 @section('content')
@@ -15,18 +13,15 @@
 
     <div class="mb-3">
         <label>Kategoria</label>
-        <select name="category" class="form-control" required>
+        <select name="category_id" class="form-control" required>
             <option value="">Wybierz kategorię</option>
-            <option value="historia">Historia</option>
-            <option value="chemia">Chemia</option>
-            <option value="biologia">Biologia</option>
-            <option value="matematyka">Matematyka</option>
-            <option value="przyroda">Przyroda</option>
-            <option value="informatyka">Informatyka</option>
-            <option value="edukacja">Edukacja dla bezpieczeństwa</option>
-            <option value="geografia">Geografia</option>
+            @foreach(\App\Models\Category::orderBy('title')->get() as $cat)
+                <option value="{{ $cat->id }}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>
+                    {{ $cat->title }}
+                </option>
+            @endforeach
         </select>
-
+        
     </div>
 
     <div class="mb-3">

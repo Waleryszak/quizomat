@@ -16,18 +16,20 @@
 
         <div class="d-flex gap-2">
 
-            <!-- PRZYCISK POWRÓT -->
+            
             <a href="{{ route('home') }}" class="btn btn-outline-light btn-sm">
                 Powrót do strony głównej
             </a>
 
-            <!-- PRZYCISK PYTANIA -->
+            
             <a href="{{ route('admin.questions') }}" class="btn btn-secondary btn-sm">
                 Pytania
             </a>
 
-
-            <!-- PRZYCISK WYLOGUJ -->
+            <a href="{{ route('admin.categories') }}" class="btn btn-success btn-sm">
+                Dodaj kategorię
+            </a>
+            
             <a href="{{ route('admin.logout') }}" class="btn btn-danger btn-sm">
                 Wyloguj
             </a>

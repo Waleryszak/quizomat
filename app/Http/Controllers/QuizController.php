@@ -4,20 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Quiz;
+use App\Models\Category;
 
 class QuizController extends Controller
-{   //Definicja identyfikatora i opisów kategorii
-    private array $topics = [
-        ['id' => 'historia', 'title' => 'Historia', 'description' => 'Wydarzenia historyczne i postacie'],
-        ['id' => 'chemia', 'title' => 'Chemia', 'description' => 'Pierwiastki i reakcje chemiczne'],
-        ['id' => 'biologia', 'title' => 'Biologia', 'description' => 'Świat roślin i zwierząt'],
-        ['id' => 'matematyka', 'title' => 'Matematyka', 'description' => 'Rachunki i logiczne myślenie'],
-        ['id' => 'przyroda', 'title' => 'Przyroda', 'description' => 'Zjawiska naturalne'],
-        ['id' => 'informatyka', 'title' => 'Informatyka', 'description' => 'Komputery i programowanie'],
-        ['id' => 'edukacja', 'title' => 'Edukacja dla bezpieczeństwa', 'description' => 'Pierwsza pomoc i bezpieczeństwo'],
-        ['id' => 'geografia', 'title' => 'Geografia', 'description' => 'Kraje, mapy, świat'],
-    ];
-
+{
     public function home()
     {
         return view('home');
@@ -25,15 +15,16 @@ class QuizController extends Controller
 
     public function index()
     {
-        return view('quizzes.index', ['topics' => $this->topics]);
+        $topics = Category::orderBy('title')->get();
+
+        return view('quizzes.index', ['topics' => $topics]);
     }
-    //Sprawdzanie poprawności identyfikatora kategorii, pobranie losowego pytania z bazy i zapis w sesji
+
     public function show($id)
     {
-        $topic = collect($this->topics)->firstWhere('id', $id);
-        if (!$topic) abort(404);
+        $topic = Category::findOrFail($id);
 
-        $questions = Quiz::where('category', $id)
+        $questions = Quiz::where('category_id', $id)
             ->inRandomOrder()
             ->take(4)
             ->get();
@@ -46,11 +37,10 @@ class QuizController extends Controller
             'score' => null
         ]);
     }
-    //Pobiera odpowiedzi i porównuje je z poprawnymi i oblicza wynik
+
     public function submit($id, Request $request)
     {
-        $topic = collect($this->topics)->firstWhere('id', $id);
-        if (!$topic) abort(404);
+        $topic = Category::findOrFail($id);
 
         $questions = session("quiz_{$id}_questions", collect());
 
@@ -63,7 +53,7 @@ class QuizController extends Controller
         }
 
         session()->forget("quiz_{$id}_questions");
-        //Zwraca wynik do do widoku quizu i sesja zostaje wyczyszczona
+
         return view('quiz', [
             'topic' => $topic,
             'questions' => $questions,

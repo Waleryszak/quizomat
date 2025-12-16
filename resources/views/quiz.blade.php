@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>{{ $topic['title'] }} – Quiz</title>
+    <title>{{ $topic->title }} – Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     @if($score !== null)
@@ -15,8 +15,9 @@
 <body>
 <div class="container py-5">
 
-    <h1 class="mb-3">{{ $topic['title'] }}</h1>
-    <p class="text-muted">{{ $topic['description'] }}</p>
+    <h1 class="mb-3">{{ $topic->title }}</h1>
+    <p class="text-muted">{{ $topic->description }}</p>
+
 
     @if($score !== null)
 
@@ -27,7 +28,7 @@
 
     @else
 
-        <form method="POST" action="{{ route('quiz.submit', $topic['id']) }}">
+        <form method="POST" action="{{ route('quiz.submit', $topic->id) }}">
             @csrf
             {{-- budowanie nagłówka z treścią --}}
             @foreach($questions as $index => $q)

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Quiz extends Model
 {
     protected $fillable = [
-        'category',
+        'category_id',
         'question',
         'option_a',
         'option_b',
@@ -15,4 +15,9 @@ class Quiz extends Model
         'option_d',
         'correct'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

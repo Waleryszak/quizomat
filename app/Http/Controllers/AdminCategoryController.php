@@ -34,7 +34,7 @@ class AdminCategoryController extends Controller
         ]);
 
         Category::create($request->only('category', 'title'));
-
+        //wyświetlanie w wudoku alertu
         return redirect()->route('admin.categories')->with('success', 'Dodano kategorię');
     }
 

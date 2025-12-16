@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Quiz;
 use App\Models\Category;
-
+// Sprawdzanie sesji admina
 class AdminQuizController extends Controller
 {
     private function requireAdmin()
@@ -29,7 +29,7 @@ class AdminQuizController extends Controller
             'categories' => $categories,
         ]);
     }
-
+    //paginate stronicuje nam po 10 pytań
     public function list(Request $request)
     {
         if ($r = $this->requireAdmin()) return $r;
@@ -78,7 +78,7 @@ class AdminQuizController extends Controller
 
         return redirect()->route('admin.questions')->with('success', 'Dodano pytanie');
     }
-
+    //Pobieranie pytań o danym ID i daje błąd 404 jeśli nie ma
     public function edit($id)
     {
         if ($r = $this->requireAdmin()) return $r;

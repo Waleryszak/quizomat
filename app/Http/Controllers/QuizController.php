@@ -19,7 +19,7 @@ class QuizController extends Controller
 
         return view('quizzes.index', ['topics' => $topics]);
     }
-
+    //Losowanie pytań przez Order by rand i take() bierze tylko 4
     public function show($id)
     {
         $topic = Category::findOrFail($id);
@@ -60,4 +60,5 @@ class QuizController extends Controller
             'score' => $score
         ]);
     }
+    //Pobiera odpowiedzi użytkownika i oblicza wynik
 }

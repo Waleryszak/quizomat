@@ -1,5 +1,5 @@
 <?php
-
+//php artisan migrate:fresh --seed
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
@@ -110,7 +110,7 @@ class QuizSeeder extends Seeder
         ];
 
         foreach ($groupedData as $slug => $questions) {
-            $category = Category::where('slug', $slug)->first();
+            $category = Category::where('category', $slug)->first();
             if (!$category) continue;
 
             foreach ($questions as $q) {

@@ -16,7 +16,7 @@
     @csrf
     <div class="row">
         <div class="col">
-            <input name="slug" class="form-control" placeholder="Kategoria" required>
+            <input name="category" class="form-control" placeholder="Kategoria" required>
         </div>
         <div class="col">
             <input name="title" class="form-control" placeholder="tytuł" required>
@@ -40,7 +40,7 @@
         @foreach($categories as $cat)
             <tr>
                 <td>{{ $cat->id }}</td>
-                <td>{{ $cat->slug }}</td>
+                <td>{{ $cat->category }}</td>
                 <td>{{ $cat->title }}</td>
                 <td>
                     <form method="POST" action="{{ route('admin.category.delete', $cat->id) }}" onsubmit="return confirm('Na pewno usunąć?')">

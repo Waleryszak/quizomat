@@ -20,7 +20,7 @@
     @foreach($questions as $q)
     <tr>
         <td>{{ $q->id }}</td>
-        <td>{{ $q->category->title ?? 'Brak kategorii' }}</td>
+        <td>{{ $q->category->title ?? 'Brak kategorii' }}</td> 
         <td>{{ $q->question }}</td>
         <td>
             A: {{ $q->option_a }}<br>

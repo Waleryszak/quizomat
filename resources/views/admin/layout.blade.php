@@ -38,6 +38,7 @@
 </nav>
 
 <div class="container">
+    {{-- Miejsce na treść z widoków poprzednich --}}
     @yield('content')
 </div>
 

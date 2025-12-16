@@ -29,11 +29,11 @@ class AdminCategoryController extends Controller
         if ($r = $this->requireAdmin()) return $r;
 
         $request->validate([
-            'slug' => 'required|alpha_dash|unique:categories,slug',
+            'category' => 'required|alpha_dash|unique:categories,category',
             'title' => 'required|string'
         ]);
 
-        Category::create($request->only('slug', 'title'));
+        Category::create($request->only('category', 'title'));
 
         return redirect()->route('admin.categories')->with('success', 'Dodano kategorię');
     }

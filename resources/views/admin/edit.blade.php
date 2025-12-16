@@ -15,6 +15,7 @@
         <label>Kategoria</label>
         <select name="category_id" class="form-control" required>
             <option value="">Wybierz kategorię</option>
+            {{-- zaznacza kategorie która jest przypisana do pytania a old wybiera poprzednie po errorze --}}
             @foreach($categories as $cat)
                 <option value="{{ $cat->id }}" {{ old('category_id', $question->category_id) == $cat->id ? 'selected' : '' }}>
                     {{ $cat->title }}
